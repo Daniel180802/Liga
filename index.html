@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS | Superliga Europeia</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-icon">N</span>
+    <div>
+      <h1>NEXUS</h1>
+      <small>EUROPEAN SUPER LEAGUE</small>
+    </div>
+  </div>
+  <button class="admin-button" onclick="openAdmin()">⚙ Administração</button>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">TEMPORADA 2026 / 2027</p>
+    <h2>SUPERLIGA <span>EUROPEIA</span></h2>
+    <p>Uma liga. Seis países. Trinta clubes.</p>
+    <div class="hero-line"></div>
+  </section>
+
+  <section class="stats">
+    <div class="stat-card"><small>CLUBES</small><strong id="clubCount">30</strong></div>
+    <div class="stat-card"><small>JOGOS</small><strong id="matchCount">0</strong></div>
+    <div class="stat-card"><small>GOLOS</small><strong id="goalCount">0</strong></div>
+  </section>
+
+  <section class="ranking">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">COMPETIÇÃO</p>
+        <h2>Classificação geral</h2>
+      </div>
+      <select id="leagueFilter" onchange="render()">
+        <option value="Todas">Todas as ligas</option>
+        <option>Portugal</option>
+        <option>Espanha</option>
+        <option>França</option>
+        <option>Itália</option>
+        <option>Alemanha</option>
+        <option>Inglaterra</option>
+      </select>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th><th>CLUBE</th><th>LIGA</th>
+            <th>J</th><th>V</th><th>E</th><th>D</th>
+            <th>GM</th><th>GS</th><th>DG</th><th>PTS</th>
+          </tr>
+        </thead>
+        <tbody id="rankingBody"></tbody>
+      </table>
+    </div>
+    <p class="note">Classificação por pontos, saldo de golos e golos marcados.</p>
+  </section>
+
+  <section class="ranking">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">RESULTADOS</p>
+        <h2>Últimos jogos</h2>
+      </div>
+    </div>
+    <div id="results" class="results"></div>
+  </section>
+</main>
+
+<div id="adminModal" class="modal">
+  <div class="modal-box">
+    <button class="close" onclick="closeAdmin()">✕</button>
+
+    <div id="loginArea">
+      <p class="eyebrow">ÁREA RESTRITA</p>
+      <h2>Administração</h2>
+      <p>Introduz a palavra-passe.</p>
+      <input type="password" id="adminPassword" placeholder="Palavra-passe">
+      <button class="gold-button" onclick="login()">Entrar</button>
+      <p id="loginError" class="error"></p>
+    </div>
+
+    <div id="dashboard" hidden>
+      <p class="eyebrow">PAINEL DE CONTROLO</p>
+      <h2>Gestão da Superliga</h2>
+
+      <h3>Editar clubes</h3>
+      <label>Clube</label>
+      <select id="clubSelect" onchange="loadClubForm()"></select>
+
+      <label>Nome do clube</label>
+      <input id="clubName" placeholder="Nome do clube">
+
+      <label>URL do escudo</label>
+      <input id="clubLogo" placeholder="https://...">
+
+      <button class="gold-button" onclick="saveClub()">Guardar clube</button>
+
+      <hr>
+
+      <h3>Registar resultado</h3>
+
+      <label>Equipa da casa</label>
+      <select id="homeTeam"></select>
+
+      <label>Equipa visitante</label>
+      <select id="awayTeam" onchange="toggleExternalTeam()"></select>
+
+      <div id="externalTeamArea" hidden>
+        <label>Nome da equipa externa</label>
+        <input id="externalTeam" placeholder="Ex.: Casa Pia">
+      </div>
+
+      <div class="score-inputs">
+        <div>
+          <label>Golos casa</label>
+          <input type="number" id="homeGoals" min="0" value="0">
+        </div>
+        <div>
+          <label>Golos visitante</label>
+          <input type="number" id="awayGoals" min="0" value="0">
+        </div>
+      </div>
+
+      <button class="gold-button" onclick="addResult()">Registar resultado</button>
+
+      <hr>
+      <h3>Gestão de resultados</h3>
+      <div id="adminMatches"></div>
+
+      <button class="danger-button" onclick="logout()">Terminar sessão</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>NEXUS © 2026 · EUROPEAN SUPER LEAGUE</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
