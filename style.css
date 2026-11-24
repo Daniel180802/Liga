@@ -61,7 +61,9 @@ body {
   letter-spacing: 2px;
 }
 
-button, select, input {
+button,
+select,
+input {
   font: inherit;
 }
 
@@ -162,7 +164,8 @@ main {
   font-size: 25px;
 }
 
-select, input {
+select,
+input {
   background: var(--panel2);
   color: white;
   border: 1px solid var(--border);
@@ -195,7 +198,8 @@ th {
   letter-spacing: 1px;
 }
 
-th, td {
+th,
+td {
   padding: 15px 12px;
   text-align: center;
   border-bottom: 1px solid var(--border);
@@ -211,19 +215,30 @@ td:nth-child(2) {
   font-weight: bold;
 }
 
-.club-logo {
-  width: 28px !important;
-  height: 28px !important;
-  max-width: 28px !important;
-  max-height: 28px !important;
-  object-fit: contain !important;
-  vertical-align: middle;
-  margin-right: 9px;
-  display: inline-block;
-  flex-shrink: 0;
+/* ESCUDOS DA CLASSIFICAÇÃO */
+
+.club-cell {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px;
 }
 
-.points, .position {
+.club-cell img {
+  display: block !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  max-width: 28px !important;
+  min-height: 28px !important;
+  max-height: 28px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+}
+
+/* PONTOS E CLASSIFICAÇÃO */
+
+.points,
+.position {
   color: var(--gold);
   font-weight: bold;
 }
@@ -237,6 +252,8 @@ td:nth-child(2) {
   font-size: 11px;
   margin-top: 12px;
 }
+
+/* RESULTADOS */
 
 .results {
   display: grid;
@@ -259,6 +276,8 @@ td:nth-child(2) {
   color: var(--gold);
   font-size: 20px;
 }
+
+/* JANELAS E PAINÉIS */
 
 .modal {
   display: none;
@@ -339,6 +358,8 @@ hr {
   gap: 12px;
 }
 
+/* PAINEL DE ADMINISTRAÇÃO */
+
 .admin-match {
   display: flex;
   justify-content: space-between;
@@ -349,20 +370,31 @@ hr {
   font-size: 12px;
 }
 
+.admin-club {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-club img {
+  display: block !important;
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  max-width: 30px !important;
+  min-height: 30px !important;
+  max-height: 30px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+}
+
 .delete-button {
   background: #812e37;
   color: white;
   padding: 7px 10px;
 }
 
-.admin-club img {
-  width: 30px !important;
-  height: 30px !important;
-  max-width: 30px !important;
-  max-height: 30px !important;
-  object-fit: contain !important;
-  flex-shrink: 0;
-}
+/* RODAPÉ */
 
 footer {
   border-top: 1px solid var(--border);
@@ -376,6 +408,8 @@ footer {
 [hidden] {
   display: none !important;
 }
+
+/* TELEMÓVEIS */
 
 @media (max-width: 650px) {
   .topbar {
