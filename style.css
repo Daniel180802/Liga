@@ -402,4 +402,27 @@ footer {
   .section-heading select {
     width: 100%;
   }
+  
+/* Tamanho normal dos escudos na classificação */
+.club-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.club-cell img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Escudos no painel de administração */
+.admin-club img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 }
