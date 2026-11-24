@@ -403,26 +403,21 @@ footer {
     width: 100%;
   }
   
-/* Tamanho normal dos escudos na classificação */
-.club-cell {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.club-cell img {
-  width: 28px;
-  height: 28px;
+/* Tamanho dos escudos na classificação */
+.club-logo {
+  width: 28px !important;
+  height: 28px !important;
+  max-width: 28px;
   object-fit: contain;
-  flex-shrink: 0;
+  vertical-align: middle;
+  margin-right: 9px;
 }
 
-/* Escudos no painel de administração */
+/* Tamanho dos escudos no painel de administração */
 .admin-club img {
   width: 30px;
   height: 30px;
+  max-width: 30px;
   object-fit: contain;
-  flex-shrink: 0;
 }
-
 }
