@@ -449,4 +449,8 @@ footer {
   .section-heading select {
     width: 100%;
   }
+
+  body {
+  outline: 5px solid red !important;
+}
 }
